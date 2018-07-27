@@ -16,6 +16,7 @@
   "author": "Carlos Cabral",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
