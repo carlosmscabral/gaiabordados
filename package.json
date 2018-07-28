@@ -11,11 +11,16 @@
     "localtunnel": "lt --port 3000 --subdomain carlosmscabral",
     "share": "npm-run-all --parallel start localtunnel",
     "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist test lint",
+    "build": "babel-node buildScripts/build.js",
+    "postbuild" : "babel-node buildScripts/distServer.js"
   },
   "author": "Carlos Cabral",
   "license": "MIT",
   "dependencies": {
+    "jquery": "^3.3.1",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
