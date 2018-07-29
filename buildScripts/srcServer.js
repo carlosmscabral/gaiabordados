@@ -1,6 +1,5 @@
 import express from 'express';
 import path from 'path';
-import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 
@@ -9,6 +8,7 @@ const app = express();
 const compiler = webpack(config);
 
 /* eslint-disable no-console */
+
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -28,10 +28,9 @@ app.get('/users',function(req,res) {
   ]);
 });
 
+
 app.listen(port, function(err) {
   if (err) {
     console.log(err);
-  } else {
-    open('http://localhost:' + port);
   }
 });
